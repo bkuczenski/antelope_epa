@@ -1,5 +1,6 @@
 
 from .kw_dict import mk_kwd
+from antelope import MultipleReferences
 
 
 class NoTermFound(Exception):
@@ -61,7 +62,11 @@ class PsmTerminationBuilder(object):
                 proc = self._get_term_from_dict(_td, k)
             except NoTermEntry:
                 continue
-            rx = proc.reference()
+            try:
+                rx = proc.reference()
+            except MultipleReferences:
+                # for this it doesn't matter-- in production we would need to specify a reference flow as well as process
+                rx = next(proc.references())
             leaf.terminate(proc, scenario=k, term_flow=rx.flow)
 
     def terminate_leaf_nodes(self, frag, origin, scenario=None, background=True):
@@ -86,14 +91,18 @@ class PsmTerminationBuilder(object):
                 proc = self._get_term_from_dict(_td, origin)
             except NoTermEntry:
                 continue
-            rx = proc.reference()
+            try:
+                rx = proc.reference()
+            except MultipleReferences:
+                # for this it doesn't matter-- in production we would need to specify a reference flow as well as process
+                rx = next(proc.references())
             if background:
                 ff.fragment.set_background()
             ff.fragment.terminate(proc, scenario=scenario, term_flow=rx.flow)
 
     def build_container(self, psm, *origins, descend=True):
         container = self.fg.new_fragment(psm.flow, 'Output', Comment='Container for %s' % psm.name)
-        self.fg.name_fragment(container, '%s Container' % psm.flow.name)
+        self.fg.observe(container, name='%s Container' % psm.flow.name)
         container.terminate(psm, descend=descend)
 
         # should be an interface for this- child flows
