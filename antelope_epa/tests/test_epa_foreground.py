@@ -1,6 +1,6 @@
 import unittest
 import os
-from antelope_catalog import LcCatalog
+from antelope_foreground import ForegroundCatalog
 
 from .config import TEST_FG_NAME, ANNOTATED_XLSX_REL_PATH
 
@@ -12,7 +12,7 @@ from ..epa_psm_antelope import EpaF18Foreground
 class EpaFgTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.cat = LcCatalog.make_tester()
+        cls.cat = ForegroundCatalog.make_tester()
         try:
             cls.folder = os.path.join(os.getenv('EPA_FOREGROUND'), 'LandingGear')
         except TypeError:

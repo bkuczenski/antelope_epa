@@ -1,4 +1,4 @@
-from antelope_catalog.providers.xl_dict import XlDict
+from antelope_core.providers.xl_dict import XlDict
 from .exceptions import DuplicateSubAssembly
 import os
 import xlrd

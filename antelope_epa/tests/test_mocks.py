@@ -4,13 +4,13 @@ from .config import catalog_dir, TRUE_FG_NAME, ANNOTATED_XLSX_REL_PATH
 from .. import create_annotated_foreground
 from ..inventory_data import MockCfGenerator
 
-from antelope_catalog import LcCatalog
+from antelope_foreground import ForegroundCatalog
 
 
 class TestMocks(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.cat = LcCatalog(catalog_dir)
+        cls.cat = ForegroundCatalog(catalog_dir)
         cls.fg = create_annotated_foreground(cls.cat, TRUE_FG_NAME, ANNOTATED_XLSX_REL_PATH)
 
     def test_mocks(self):

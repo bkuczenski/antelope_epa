@@ -4,7 +4,7 @@ import os
 from ..exceptions import MissingEpaForegroundEnvVar
 from ..validation import validate_folder
 
-from antelope_catalog import LcCatalog
+from antelope_core import LcCatalog
 
 
 class SpreadsheetTest(unittest.TestCase):

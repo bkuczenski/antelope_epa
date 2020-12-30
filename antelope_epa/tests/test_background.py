@@ -3,8 +3,8 @@ import os
 
 from .config import catalog_dir, USEEIO_REF, USLCI_REF, ELCD_REF
 
-from antelope_catalog import LcCatalog
-from lcatools.interfaces import UnknownOrigin
+from antelope_core import LcCatalog
+from antelope import UnknownOrigin
 
 
 def _fetch_uslci(cat):

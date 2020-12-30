@@ -1,9 +1,9 @@
 import os
 from collections import defaultdict
 
-from antelope_catalog.providers.xl_dict import XlDict
-from lcatools.interfaces import EntityNotFound
-from lcatools.entities.tree_isomorphism import isomorphic, TreeIsomorphismException
+from antelope_core.providers.xl_dict import XlDict
+from antelope import EntityNotFound
+from .tree_isomorphism import isomorphic, TreeIsomorphismException
 
 from .validation import validate_folder
 from .exceptions import DuplicateSubAssembly
@@ -251,7 +251,7 @@ class EpaF18Foreground(object):
     def _split_subassembly(self, frag):
         parent_ref = self._get_next_name(frag.flow)
         self.fg.split_subfragment(frag)
-        self.fg.name_fragment(frag, parent_ref)
+        self.fg.observe(frag, name=parent_ref)
         self._refs.append(frag)
 
     def reduce_duplicates(self, master, *dupes, verify=True):

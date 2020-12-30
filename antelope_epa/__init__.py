@@ -19,7 +19,7 @@ def create_annotated_foreground(cat, fg_name, annotation_file, scratch=False):
         # load annotations
         ar = cat.get_archive(fg.origin)
 
-        from lcatools.entities.xlsx_editor import XlsxArchiveUpdater
+        from antelope_core.entities.xlsx_editor import XlsxArchiveUpdater
 
         with XlsxArchiveUpdater(ar, annotation_file) as x:
             x.apply()
