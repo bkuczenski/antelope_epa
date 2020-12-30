@@ -1,5 +1,5 @@
-antelope_core[XML]==0.1.3rc3
+antelope_core[XML]==0.1.3rc4
 antelope_foreground>=0.1.3rc1
-lca_disclosures>=0.2.0rc1
+lca_disclosures==0.2.0rc2
 requests>=2.23.0
 
