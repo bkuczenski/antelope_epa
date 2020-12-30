@@ -8,7 +8,7 @@ from antelope import UnknownOrigin
 
 
 def _fetch_uslci(cat):
-    from antelope_catalog.data_sources.local import make_config
+    from antelope_core.data_sources.local import make_config
     us = make_config('uslci')
 
     for res in us.make_resources(USLCI_REF):
