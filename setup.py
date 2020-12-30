@@ -7,10 +7,9 @@ Revision History
 """
 
 requirements = [
-    'antelope_core>=0.1.3',
+    'antelope_core>=0.1.3[XML]',
     'antelope_foreground>=0.1.3',
     'lca_disclosures>=0.2.0',
-    'xlrd'
 ]
 
 

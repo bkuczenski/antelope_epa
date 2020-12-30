@@ -1,4 +1,4 @@
-# EPA_PSM_Antelope
+# antelope_epa
 
 EPA Product System Modeling Hackathon - antelope branch.  
 
@@ -42,9 +42,10 @@ For the moment, `pip install -r requirements.txt` should work, as long as I get 
 
 The following steps were sufficient on my system:
 
-    $ mkvirtualenv -p /usr/bin/python3.7 hackathon
+    $ mkvirtualenv -p /usr/bin/python3 hackathon
     (hackathon)$ pip install -r requirements.txt
     (hackathon)$ export EPA_FOREGROUND=/path/to/LCAproductsystemassembly_resources/data
+    (hackathon)$ python -m unittest
     (hackathon)$ python generate_disclosures.py
 
 # Documentation
