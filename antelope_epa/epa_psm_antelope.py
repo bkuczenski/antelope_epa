@@ -13,7 +13,7 @@ class BadParentReference(Exception):
     pass
 
 
-class EpaF18Foreground(object):
+class EpaBomForeground(object):
     """
     This class is used to read in spreadsheets as formatted for the EPA PSM hackathon, and create product systems
     from them.

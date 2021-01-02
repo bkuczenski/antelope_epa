@@ -1,4 +1,4 @@
-from .epa_psm_antelope import EpaF18Foreground
+from .epa_psm_antelope import EpaBomForeground
 from .inventory_data import MockCfGenerator
 from .terminations import PsmTerminationBuilder
 
@@ -51,7 +51,7 @@ def create_epa_psms(fg, data_dir):
     :return:
     """
 
-    efg = EpaF18Foreground(fg, folder=data_dir)
+    efg = EpaBomForeground(fg, folder=data_dir)
     if len([k for k in efg.models]) == 27:
         return True
 

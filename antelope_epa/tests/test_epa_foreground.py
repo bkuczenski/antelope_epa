@@ -6,7 +6,7 @@ from .config import TEST_FG_NAME, ANNOTATED_XLSX_REL_PATH
 
 from .. import create_annotated_foreground
 from ..exceptions import MissingEpaForegroundEnvVar
-from ..epa_psm_antelope import EpaF18Foreground
+from ..epa_psm_antelope import EpaBomForeground
 
 
 class EpaFgTest(unittest.TestCase):
@@ -30,7 +30,7 @@ class EpaFgTest(unittest.TestCase):
 
     def test_2_models(self):
         fg = self.cat.foreground(TEST_FG_NAME)
-        efg = EpaF18Foreground(fg, self.folder)
+        efg = EpaBomForeground(fg, self.folder)
         self.assertEqual(len(list(efg.valid_sheets)), 8)
         for sheet in efg.valid_sheets:
             efg.create_assembly(sheet)
@@ -39,7 +39,7 @@ class EpaFgTest(unittest.TestCase):
 
     def test_3_duplicates(self):
         fg = self.cat.foreground(TEST_FG_NAME)
-        efg = EpaF18Foreground(fg, self.folder)
+        efg = EpaBomForeground(fg, self.folder)
         self.assertEqual(len(list(efg.duplicate_subassemblies())), 19)
         for dup in efg.duplicate_subassemblies():
             sdup = sorted(dup, key=lambda x: not x.is_reference)  # make sure
