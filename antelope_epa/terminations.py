@@ -1,4 +1,7 @@
-
+"""
+Note: "termination" is the term used in antelope software to describe the process of connecting foreground
+nodes to either background processes or environmental contexts.
+"""
 from .kw_dict import mk_kwd
 from antelope import MultipleReferences
 
@@ -28,7 +31,7 @@ class PsmTerminationBuilder(object):
     Other than the keyword dictionary, the functionality of this class is mainly to handle/manipulate fragments using
     the catalog and foreground interface.
     """
-    def __init__(self, cat, fg, term_info, sheet='terminations'):
+    def __init__(self, cat, fg, term_info, sheet='targets'):
         self.cat = cat
         self.fg = fg
         self.term_dict = mk_kwd(term_info, sheet, kwcols=2, lower=False)

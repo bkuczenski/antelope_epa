@@ -45,7 +45,7 @@ def simple_product_model_disclosures(cat, fg_name, termination_file, psm=small, 
     fg = cat.foreground(fg_name, reset=True)
     simple_frag = fg.get(psm)
 
-    builder = PsmTerminationBuilder(cat, fg, termination_file, sheet='terminations')
+    builder = PsmTerminationBuilder(cat, fg, termination_file, sheet='targets')
 
     builder.terminate_leaf_nodes(simple_frag, 'local.uslci.olca', scenario='breakout uslci')
 
@@ -102,7 +102,7 @@ def large_product_model_mixed_scenarios(cat, fg_name, termination_file, psm=larg
     fg = cat.foreground(fg_name, reset=True)  # reset causes reload from
     large_frag = fg.get(psm)
 
-    builder = PsmTerminationBuilder(cat, fg, termination_file, sheet='terminations')
+    builder = PsmTerminationBuilder(cat, fg, termination_file, sheet='targets')
 
     builder.terminate_leaf_nodes(large_frag, 'local.elcd.3.2', 'ELCD')
 
