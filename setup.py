@@ -7,7 +7,7 @@ Revision History
 """
 
 requirements = [
-    'antelope_core[XML]==0.1.3rc4',
+    'antelope_core[XML]==0.1.3rc4',  # broken in 0.1.4 in term_manager bc of a bad pop
     'antelope_foreground>=0.1.3rc1',
     'lca_disclosures==0.2.0rc2',
     'requests>=2.23.0'
